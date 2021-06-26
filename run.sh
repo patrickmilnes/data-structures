@@ -1,2 +1,2 @@
 make
-./build/prog.out
+./build/prog
