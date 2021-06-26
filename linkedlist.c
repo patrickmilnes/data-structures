@@ -56,6 +56,8 @@ void print_list(LinkedList* list) {
  */
 int push_node(LinkedList *list, void *payload, size_t n)
 {
+    printf("Pushing node onto list!\n");
+
     // If null pointer given return -1.
     if (list == NULL || payload == NULL)
         return -1;
@@ -75,8 +77,8 @@ int push_node(LinkedList *list, void *payload, size_t n)
     new_node->next = list->head;
     list->head = new_node;
 
-    // if (list->length == 0)
-    //     list->tail = new_node;
+    if (list->length == 0)
+        list->tail = new_node;
 
     list->length++;
     return 0;

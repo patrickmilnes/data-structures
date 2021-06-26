@@ -12,6 +12,6 @@ int main(int argc, char* argv[])
     Node* new_node = (Node*) malloc(sizeof(Node));
     new_node->payload = stuff;
     int rc = push_node(list, new_node, sizeof(new_node));
-    printf("%i\n", rc);
+    printf("rc: %i\n", rc);
     print_list(list);
 }
