@@ -8,7 +8,6 @@
 typedef struct Node
 {
     struct Node *next;
-    size_t alloc;
     void *payload;
 } Node;
 
@@ -25,6 +24,7 @@ typedef struct my_payload {
 } my_payload_t;
 
 LinkedList* init_linkedlist();
+Node* init_node();
 void print_list(LinkedList* list);
 int push_node(LinkedList *list, void *payload, size_t n);
 int pop_node(LinkedList *list);

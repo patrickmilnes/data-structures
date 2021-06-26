@@ -16,13 +16,30 @@ LinkedList *init_linkedlist()
     if (list == NULL)
         return NULL;
 
-    // Assign
     list->head = NULL;
     list->tail = NULL;
     list->length = 0;
 
-    // Return pointer
     return list;
+}
+
+/**
+ * @brief Initializes node struct, returns null pointer if
+ * memory allocation failed.
+ * 
+ * @return Node* 
+ */
+Node* init_node()
+{
+    // Attempt to allocate memory for node.
+    Node* new_node = (Node*) malloc(sizeof(Node));
+    if(new_node == NULL)
+        return NULL;
+    
+    new_node->next = NULL;
+    new_node->payload = NULL;
+
+    return new_node;
 }
 
 /**
@@ -70,7 +87,7 @@ int push_node(LinkedList *list, void *payload, size_t n)
         return -1;
 
     // Allocate memory
-    Node *new_node = malloc(sizeof(Node));
+    Node *new_node = init_node();
     new_node->payload = payload;
 
     // Check if mem allocation was successful.
