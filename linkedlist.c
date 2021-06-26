@@ -31,7 +31,8 @@ LinkedList* init_linkedlist()
  * 
  * @param list 
  */
-void print_list(LinkedList* list) {
+void print_list(LinkedList* list) 
+{
     printf("Printing list:\n");
     Node* temp = list->head;
 
@@ -84,6 +85,30 @@ int push_node(LinkedList *list, void *payload, size_t n)
     return 0;
 }
 
-int pop_node(LinkedList *list, void *destination)
+/**
+ * @brief Removes element of list at the head.
+ * 0    -> Successful
+ * 1    -> Empty list error.
+ * 
+ * @param list 
+ * @param destination 
+ * @return int 
+ */
+int pop_node(LinkedList* list)
 {
+    if(list == NULL || list->length == 0)
+        return 1;
+
+    // Unlink head from list.
+    Node* to_free = list->head;
+    list->head = to_free->next;
+    list->length--;
+
+    free(to_free);
+    free(to_free->payload);
+
+    if(list->length == 0)
+        list->tail == NULL;
+
+    return 0;
 }

@@ -6,12 +6,12 @@ int main(int argc, char* argv[])
 {
     my_payload_t* stuff = (my_payload_t*) malloc(sizeof(my_payload_t));
     stuff->age = 3;
-    stuff->name = "Sasha";
+    stuff->name = "I love S.H";
 
     LinkedList* list = init_linkedlist();
-    Node* new_node = (Node*) malloc(sizeof(Node));
-    new_node->payload = stuff;
-    int rc = push_node(list, new_node, sizeof(new_node));
+    int rc = push_node(list, stuff, sizeof(stuff));
     printf("rc: %i\n", rc);
+    print_list(list);
+    pop_node(list);
     print_list(list);
 }
