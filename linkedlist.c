@@ -180,7 +180,7 @@ int append_node(LinkedList *list, void *payload)
 
 // 0 - Element found
 // 1 - Element not found.
-int search_by_age(LinkedList *list, int age_target, Node *destination)
+Node* search_by_age(LinkedList* list, int age_target)
 {
     printf("Searching list!\n");
 
@@ -188,15 +188,13 @@ int search_by_age(LinkedList *list, int age_target, Node *destination)
 
     while (temp != NULL)
     {
-        my_payload_t *current_payload = (my_payload_t *)temp->payload;
+        my_payload_t *current_payload = (my_payload_t*) temp->payload;
         if (current_payload->age == age_target)
         {
-            memcpy(destination, temp, sizeof(temp));
-            printf("Found and copied!\n");
-            return 0;
+            return temp;
         }
         temp = temp->next;
     }
     printf("Not found!\n");
-    return 1;
+    return NULL;
 }

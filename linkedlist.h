@@ -30,6 +30,6 @@ void print_list(LinkedList *list);
 int push_node(LinkedList *list, void *payload, size_t n);
 int pop_node(LinkedList *list);
 int append_node(LinkedList *list, void *payload);
-int search_by_age(LinkedList *list, int age_target, Node *destination);
+Node* search_by_age(LinkedList *list, int age_target);
 
 #endif //JSON_PARSER_LINKEDLIST_H
