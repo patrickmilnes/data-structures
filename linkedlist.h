@@ -7,14 +7,14 @@
 
 typedef struct Node
 {
-    struct Node *next;
-    void *payload;
+    struct Node* next;
+    void* payload;
 } Node;
 
 typedef struct
 {
-    struct Node *head;
-    struct Node *tail;
+    struct Node* head;
+    struct Node* tail;
     int length;
 } LinkedList;
 
@@ -24,12 +24,13 @@ typedef struct my_payload
     char *name;
 } my_payload_t;
 
-LinkedList *init_linkedlist();
-Node *init_node();
+LinkedList* init_linkedlist();
+Node* init_node();
 void print_list(LinkedList *list);
-int push_node(LinkedList *list, void *payload, size_t n);
+int push_node(LinkedList *list, void* payload, size_t n);
 int pop_node(LinkedList *list);
-int append_node(LinkedList *list, void *payload);
-Node* search_by_age(LinkedList *list, int age_target);
+int append_node(LinkedList *list, void* payload);
+Node* search_by_age(LinkedList* list, int age_target);
+Node* search_by_name(LinkedList* list, char* name_target);
 
 #endif //JSON_PARSER_LINKEDLIST_H

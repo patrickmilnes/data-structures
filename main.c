@@ -27,7 +27,11 @@ int main(int argc, char *argv[])
     print_list(list);
     push_node(list, stuff2, sizeof(stuff2));
     print_list(list);
-    Node* result = search_by_age(list, 33);
-    my_payload_t *result1 = (my_payload_t *)result->payload;
-    printf("Name: %s\n", result1->name);
+    Node* result = search_by_name(list, "Davids");
+    if (result != NULL)
+    {
+        my_payload_t *result1 = (my_payload_t *)result->payload;
+        printf("Name: %s\n", result1->name);
+    }
+    
 }

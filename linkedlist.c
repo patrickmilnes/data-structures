@@ -178,8 +178,14 @@ int append_node(LinkedList *list, void *payload)
     return 0;
 }
 
-// 0 - Element found
-// 1 - Element not found.
+/**
+ * @brief Allows seaching list by name in payload. Returns pointer to node
+ * if target is found and returns null id target is not found.
+ * 
+ * @param list 
+ * @param age_target 
+ * @return Node* 
+ */
 Node* search_by_age(LinkedList* list, int age_target)
 {
     printf("Searching list!\n");
@@ -195,6 +201,35 @@ Node* search_by_age(LinkedList* list, int age_target)
         }
         temp = temp->next;
     }
+    printf("Not found!\n");
+    return NULL;
+}
+
+/**
+ * @brief Allows searching list by age. Returns pointer to node
+ * if target is found and returns null id target is not found.
+ * 
+ * @param list 
+ * @param name_target 
+ * @return Node* 
+ */
+Node* search_by_name(LinkedList* list, char* name_target)
+{
+    printf("Searching list!\n");
+
+    Node *temp = list->head;
+
+    while (temp != NULL)
+    {
+        my_payload_t *current_payload = (my_payload_t*) temp->payload;
+        int rc = strcmp(current_payload->name, name_target);
+        if (rc == 0)
+        {
+            return temp;
+        }
+        temp = temp->next;
+    }
+    free(temp);
     printf("Not found!\n");
     return NULL;
 }
