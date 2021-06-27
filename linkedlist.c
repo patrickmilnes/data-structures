@@ -1,5 +1,6 @@
 #include <stdlib.h>
 #include <stdio.h>
+#include <string.h>
 #include "linkedlist.h"
 
 /**
@@ -29,13 +30,13 @@ LinkedList *init_linkedlist()
  * 
  * @return Node* 
  */
-Node* init_node()
+Node *init_node()
 {
     // Attempt to allocate memory for node.
-    Node* new_node = (Node*) malloc(sizeof(Node));
-    if(new_node == NULL)
+    Node *new_node = (Node *)malloc(sizeof(Node));
+    if (new_node == NULL)
         return NULL;
-    
+
     new_node->next = NULL;
     new_node->payload = NULL;
 
@@ -60,11 +61,11 @@ void print_list(LinkedList *list)
 
     for (int i = 0; temp != NULL; i++)
     {
-        my_payload_t *payload = (my_payload_t *) temp->payload;
+        my_payload_t *payload = (my_payload_t *)temp->payload;
         printf("%i\t%i\t%s\n", i, payload->age, payload->name);
         temp = temp->next;
     }
-    
+
     // while (temp != NULL)
     // {
     // }
@@ -150,16 +151,16 @@ int pop_node(LinkedList *list)
  * @param new_node 
  * @return int 
  */
-int append_node(LinkedList* list, void* payload)
+int append_node(LinkedList *list, void *payload)
 {
-    if(list == NULL, payload == NULL)
+    if (list == NULL, payload == NULL)
         return -1;
-    
+
     // Allocate memory
-    Node* new_node = init_node();
+    Node *new_node = init_node();
     new_node->payload = payload;
 
-    if(new_node == NULL)
+    if (new_node == NULL)
     {
         free(new_node);
         return 1;
@@ -175,4 +176,27 @@ int append_node(LinkedList* list, void* payload)
     list->length++;
 
     return 0;
+}
+
+// 0 - Element found
+// 1 - Element not found.
+int search_by_age(LinkedList *list, int age_target, Node *destination)
+{
+    printf("Searching list!\n");
+
+    Node *temp = list->head;
+
+    while (temp != NULL)
+    {
+        my_payload_t *current_payload = (my_payload_t *)temp->payload;
+        if (current_payload->age == age_target)
+        {
+            memcpy(destination, temp, sizeof(temp));
+            printf("Found and copied!\n");
+            return 0;
+        }
+        temp = temp->next;
+    }
+    printf("Not found!\n");
+    return 1;
 }

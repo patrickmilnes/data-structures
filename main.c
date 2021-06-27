@@ -2,21 +2,21 @@
 #include <stdlib.h>
 #include "linkedlist.h"
 
-int main(int argc, char* argv[])
+int main(int argc, char *argv[])
 {
-    my_payload_t* stuff = (my_payload_t*) malloc(sizeof(my_payload_t));
+    my_payload_t *stuff = (my_payload_t *)malloc(sizeof(my_payload_t));
     stuff->age = 3;
     stuff->name = "I love S.H";
 
-    my_payload_t* stuff1 = (my_payload_t*) malloc(sizeof(my_payload_t));
+    my_payload_t *stuff1 = (my_payload_t *)malloc(sizeof(my_payload_t));
     stuff1->age = 33;
     stuff1->name = "I <3 S.H";
 
-    my_payload_t* stuff2 = (my_payload_t*) malloc(sizeof(my_payload_t));
+    my_payload_t *stuff2 = (my_payload_t *)malloc(sizeof(my_payload_t));
     stuff2->age = 56;
     stuff2->name = "David";
 
-    LinkedList* list = init_linkedlist();
+    LinkedList *list = init_linkedlist();
     int rc = push_node(list, stuff, sizeof(stuff));
     printf("rc: %i\n", rc);
     print_list(list);
@@ -27,4 +27,9 @@ int main(int argc, char* argv[])
     print_list(list);
     push_node(list, stuff2, sizeof(stuff2));
     print_list(list);
+    Node *result = init_node();
+    rc = search_by_age(list, 56, result);
+    printf("RC: %i\n", rc);
+    my_payload_t *result1 = (my_payload_t *)result->payload;
+    printf("Name: %s", result1->name);
 }

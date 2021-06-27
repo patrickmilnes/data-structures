@@ -18,16 +18,18 @@ typedef struct
     int length;
 } LinkedList;
 
-typedef struct my_payload {
-        int age;
-        char* name;
+typedef struct my_payload
+{
+    int age;
+    char *name;
 } my_payload_t;
 
-LinkedList* init_linkedlist();
-Node* init_node();
-void print_list(LinkedList* list);
-int push_node(LinkedList* list, void *payload, size_t n);
-int pop_node(LinkedList* list);
-int append_node(LinkedList* list, void* payload);
+LinkedList *init_linkedlist();
+Node *init_node();
+void print_list(LinkedList *list);
+int push_node(LinkedList *list, void *payload, size_t n);
+int pop_node(LinkedList *list);
+int append_node(LinkedList *list, void *payload);
+int search_by_age(LinkedList *list, int age_target, Node *destination);
 
 #endif //JSON_PARSER_LINKEDLIST_H
