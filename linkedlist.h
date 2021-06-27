@@ -26,7 +26,8 @@ typedef struct my_payload {
 LinkedList* init_linkedlist();
 Node* init_node();
 void print_list(LinkedList* list);
-int push_node(LinkedList *list, void *payload, size_t n);
-int pop_node(LinkedList *list);
+int push_node(LinkedList* list, void *payload, size_t n);
+int pop_node(LinkedList* list);
+int append_node(LinkedList* list, void* payload);
 
 #endif //JSON_PARSER_LINKEDLIST_H

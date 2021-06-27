@@ -58,12 +58,16 @@ void print_list(LinkedList *list)
         return;
     }
 
-    while (temp != NULL)
+    for (int i = 0; temp != NULL; i++)
     {
-        my_payload_t *payload = (my_payload_t *)temp->payload;
-        printf("%i\t%s\n", payload->age, payload->name);
+        my_payload_t *payload = (my_payload_t *) temp->payload;
+        printf("%i\t%i\t%s\n", i, payload->age, payload->name);
         temp = temp->next;
     }
+    
+    // while (temp != NULL)
+    // {
+    // }
     free(temp);
 }
 
@@ -132,6 +136,43 @@ int pop_node(LinkedList *list)
 
     if (list->length == 0)
         list->tail == NULL;
+
+    return 0;
+}
+
+/**
+ * @brief Inserts node onto end of list.
+ * 0    -> Success
+ * 1    -> Failed to allocate memory.
+ * -1   -> Null pointers were given.
+ * 
+ * @param list 
+ * @param new_node 
+ * @return int 
+ */
+int append_node(LinkedList* list, void* payload)
+{
+    if(list == NULL, payload == NULL)
+        return -1;
+    
+    // Allocate memory
+    Node* new_node = init_node();
+    new_node->payload = payload;
+
+    if(new_node == NULL)
+    {
+        free(new_node);
+        return 1;
+    }
+
+    if (list->length == 0)
+        list->head = new_node;
+    else
+        list->tail->next = new_node;
+
+    list->tail = new_node;
+
+    list->length++;
 
     return 0;
 }
