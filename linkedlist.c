@@ -202,6 +202,7 @@ Node* search_by_age(LinkedList* list, int age_target)
         temp = temp->next;
     }
     printf("Not found!\n");
+    // free(temp);
     return NULL;
 }
 
@@ -229,7 +230,7 @@ Node* search_by_name(LinkedList* list, char* name_target)
         }
         temp = temp->next;
     }
-    free(temp);
+    // free(temp);
     printf("Not found!\n");
     return NULL;
 }
