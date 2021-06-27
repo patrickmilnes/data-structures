@@ -1,5 +1,5 @@
-main.o: main.c linkedlist.o
-	gcc main.c build/linkedlist.o -o build/prog
+main: linkedlist.o
+	gcc src/main.c build/linkedlist.o -o build/prog
 
-linkedlist.o: linkedlist.c
-	gcc linkedlist.c -c -o build/linkedlist.o
+linkedlist.o: src/linkedlist.c
+	gcc src/linkedlist.c -c -o build/linkedlist.o

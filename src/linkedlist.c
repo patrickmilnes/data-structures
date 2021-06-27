@@ -1,7 +1,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 #include <string.h>
-#include "linkedlist.h"
+#include "include/linkedlist.h"
 
 /**
  * @brief Initialized linked list struct, returns null pointer if
