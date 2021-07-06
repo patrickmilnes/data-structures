@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include "include/linkedlist.h"
+#include "include/utils.h"
 
 int main(int argc, char *argv[])
 {
@@ -33,5 +34,9 @@ int main(int argc, char *argv[])
         my_payload_t *result1 = (my_payload_t *)result->payload;
         printf("Name: %s\n", result1->name);
     }
-    
+
+
+    char string[] = "Hello, this is a string with whitespaces.";
+    remove_whitespace(string);
+    printf("%s\n", string);
 }
