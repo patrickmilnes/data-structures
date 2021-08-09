@@ -2,8 +2,8 @@
 // Created by Patrick on 26/06/2021 - 12:56.
 //
 #include <stddef.h>
-#ifndef JSON_PARSER_LINKEDLIST_H
-#define JSON_PARSER_LINKEDLIST_H
+#ifndef DATA_STRUCTURES_LINKEDLIST_H
+#define DATA_STRUCTURES_LINKEDLIST_H
 
 typedef struct Node
 {
@@ -33,4 +33,4 @@ int append_node(LinkedList *list, void* payload);
 Node* search_by_age(LinkedList* list, int age_target);
 Node* search_by_name(LinkedList* list, char* name_target);
 
-#endif //JSON_PARSER_LINKEDLIST_H
+#endif //DATA_STRUCTURES_LINKEDLIST_H
