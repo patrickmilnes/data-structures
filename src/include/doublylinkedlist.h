@@ -1,19 +1,20 @@
 #include <stddef.h>
 
-typedef struct Node
+typedef struct node
 {
-    struct Node* next;
-    struct Node* prev;
+    struct node* next;
+    struct node* prev;
     void* payload;
-} Node;
+} node_t;
 
 typedef struct
 {
     struct Node* head;
     struct Node* tail;
     int length;
-} DoublyLinkedList;
+} doubly_linked_list_t;
 
-DoublyLinkedList* init_doubly_linked_list();
-int push_node(DoublyLinkedList* list, void* payload, size_t n);
-int pop_node(DoublyLinkedList* list);
+doubly_linked_list_t* init_doubly_linked_list();
+int push_node(doubly_linked_list_t* list, void* payload, size_t n);
+int pop_node(doubly_linked_list_t* list);
+node_t* init_node(void* payload);
